@@ -14,12 +14,12 @@ use <MCAD/polyholes.scad>;
 id=36.15;
 od=id + 15.0;
 
-clearance=1.0;
+clearance=0.5;
 slot_w=5;
 height=29;
 fn=200;
 
-mount_hole_d = 5.0;
+mount_hole_d = 4.0;
 collar_tension_d = 3.0;
 collar_tension_nut_d = 5.40;
 collar_tension_head_d = 5.70;
@@ -45,7 +45,7 @@ module bulk()
 module bulk_remove()
 {
     union(){
-        cylinder(h=4+height/2, r=id/2-clearance, center=true, $fn=fn);
+        cylinder(h=4+height/2, r=id/2+clearance, center=true, $fn=fn);
         translate([-od/4,0,0]) cube([2+od/2,slot_w,4+height/2], center=true);
     }
    
